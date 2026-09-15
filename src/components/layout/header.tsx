@@ -87,7 +87,7 @@ export function Header() {
                   isInitiativeActive ? 'text-primary font-semibold' : 'text-muted-foreground'
                 )}
               >
-                Initiative <ChevronDown className="h-4 w-4" />
+                Initiatives <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-64">
                 <DropdownMenuItem asChild>
@@ -183,7 +183,7 @@ export function Header() {
                           isInitiativeActive ? 'text-primary font-semibold' : 'text-muted-foreground'
                         )}
                       >
-                        Initiative <ChevronDown className={cn('h-5 w-5 transition-transform', isInitiativeOpen && 'rotate-180')} />
+                        Initiatives <ChevronDown className={cn('h-5 w-5 transition-transform', isInitiativeOpen && 'rotate-180')} />
                       </button>
                       {isInitiativeOpen && (
                         <div className="pl-4 flex flex-col gap-3 border-l border-border/60 my-1">
