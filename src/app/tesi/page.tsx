@@ -9,25 +9,19 @@ import {
   Code2,
   Rocket,
   ArrowRight,
-  Video,
-  Wand2,
-  Scissors,
-  CheckCircle2,
-  Calendar,
-  Users
+  CheckCircle2
 } from "lucide-react";
 import { tesiShoeMaking, tesiVideoEditing, tesiAiUgc } from "@/assets/images";
 
 const tesiInitiatives = [
   {
     id: "shoe-making",
-    title: "1. Shoe Making Initiative",
+    title: "Shoe Making",
     subtitle: "Craftsmanship Meets Modern Digital Branding",
     description:
       "A hands-on training initiative empowering youth to master footwear production, leather craft design, digital product modeling, and online store management.",
     image: tesiShoeMaking,
     badge: "Craftsmanship & Tech",
-    icon: Scissors,
     highlights: [
       "Footwear design & precision leather crafting",
       "Digital pattern design & 3D prototyping concepts",
@@ -37,13 +31,12 @@ const tesiInitiatives = [
   },
   {
     id: "video-editing",
-    title: "2. Video Editing Initiative",
+    title: "Video Editing",
     subtitle: "Professional Digital Storytelling & Production",
     description:
       "An intensive skill-up track teaching commercial video editing, timeline assembly, color grading, motion graphics, and audio post-production for modern media.",
     image: tesiVideoEditing,
     badge: "Creative Media",
-    icon: Video,
     highlights: [
       "Industry-standard editing software workflows",
       "Color grading, audio tuning, and cinematic transitions",
@@ -53,13 +46,12 @@ const tesiInitiatives = [
   },
   {
     id: "ai-ugc-video",
-    title: "3. AI UGC Video Creation Initiative",
+    title: "AI UGC Video Creation",
     subtitle: "Next-Gen AI-Powered Video & Avatar Generation",
     description:
       "Explore the frontier of content creation by combining artificial intelligence scriptwriting, voice synthesis, digital avatars, and high-converting UGC video ads.",
     image: tesiAiUgc,
     badge: "AI & Innovation",
-    icon: Wand2,
     highlights: [
       "AI script generation & hook optimization",
       "Synthetic avatars & voice cloning tools",
@@ -76,11 +68,6 @@ export default function TesiPage() {
       <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-primary/10 via-background to-background border-b border-border/40">
         <div className="w-[90%] md:w-4/5 mx-auto max-w-[1440px]">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
-            <Badge variant="secondary" className="px-4 py-1.5 text-sm font-medium gap-2">
-              <Sparkles className="w-4 h-4 text-primary" />
-              Calabar Tech Community Initiative
-            </Badge>
-
             <h1 className="text-4xl md:text-6xl font-headline font-bold tracking-tight text-foreground">
               Tech Evangelist Skill-Up Initiative <span className="text-primary font-extrabold">(TESI)</span>
             </h1>
@@ -163,7 +150,6 @@ export default function TesiPage() {
 
           <div className="grid gap-12">
             {tesiInitiatives.map((item, idx) => {
-              const IconComp = item.icon;
               const isEven = idx % 2 === 0;
 
               return (
@@ -190,14 +176,9 @@ export default function TesiPage() {
                     {/* Content Container */}
                     <div className={`p-8 md:p-10 lg:col-span-6 space-y-6 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                       <div className="space-y-2">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-                            <IconComp className="w-5 h-5" />
-                          </div>
-                          <h3 className="text-2xl md:text-3xl font-headline font-bold text-foreground">
-                            {item.title}
-                          </h3>
-                        </div>
+                        <h3 className="text-2xl md:text-3xl font-headline font-bold text-foreground">
+                          {item.title}
+                        </h3>
                         <p className="text-sm font-semibold text-primary">
                           {item.subtitle}
                         </p>
