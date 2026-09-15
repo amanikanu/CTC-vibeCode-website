@@ -11,10 +11,11 @@ import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from '@/components/ui/card';
 
 const initialState = {
-  message: null,
-  errors: {},
+  message: '' as string,
+  errors: null,
   isSuccess: false,
 };
+
 
 function SubmitButton() {
   const { pending } = useFormStatus();

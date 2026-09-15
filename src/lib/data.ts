@@ -84,8 +84,30 @@ export interface Faq {
   answer: string;
 }
 
-import { womensDay2026 } from "@/assets/images";
+import { womensDay2026, nocodePortfolio2026 } from "@/assets/images";
 const events: Event[] = [
+  {
+    id: "nocode-portfolio-2026",
+    title: "How to Create a Portfolio Using No-code Tools",
+    date: "2026-09-12",
+    time: "5:00 PM WAT",
+    location: "Google Meet",
+    shortDescription:
+      "Learn how to build and showcase a professional tech portfolio using modern no-code tools.",
+    description:
+      "Join Calabar Tech Community, Amani Kanu (The Tech Evangelist), and the TESI Initiative for an insightful session on 'How to Create a Portfolio Using No-code Tools'. Featuring guest speaker Olatunji Oye, Senior Software Engineer at BNSF Railway. Discover how to effectively showcase your projects and skills without writing complex code.",
+    imageUrl: nocodePortfolio2026.src,
+    imageHint: "no code portfolio creation flyer",
+    speakers: [
+      {
+        name: "Olatunji Oye",
+        title: "Senior Software Engineer - BNSF Railway",
+        imageUrl: "https://picsum.photos/seed/olatunjioye/200/200",
+        imageHint: "Olatunji Oye portrait",
+      },
+    ],
+    resources: "Follow Calabar Tech Community social media pages for workshop slides and recordings.",
+  },
   {
     id: "iwd-2025",
     title: "IWD 2026: Give to Gain",
