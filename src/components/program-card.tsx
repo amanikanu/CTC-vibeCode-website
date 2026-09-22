@@ -80,23 +80,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         </div>
       </CardContent>
       <CardFooter>
-        {program.hideButton ? null : program.id === "school-tech-storm-2026" &&
-          !program.recap ? (
-          <GetInvolvedModal
-            trigger={<Button className="w-full">Get Involved</Button>}
-          />
-        ) : !program.recap ? (
-          <Button asChild className="w-full">
-            <a
-              href={program.registrationLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {program.registrationButtonText || "Register Now"}{" "}
-              <ExternalLink className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-        ) : program.recap ? (
+        {program.hideButton ? null : program.recap ? (
           <Button asChild className="w-full">
             <a
               href={program.recap.link}
@@ -107,7 +91,26 @@ export default function ProgramCard({ program }: ProgramCardProps) {
               {program.recap.text || "Watch the Video"}
             </a>
           </Button>
-        ) : null}
+        ) : program.registrationLink && !program.useModal ? (
+          <Button asChild className="w-full">
+            <a
+              href={program.registrationLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {program.registrationButtonText || "Register Now"}{" "}
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        ) : (
+          <GetInvolvedModal
+            trigger={
+              <Button className="w-full">
+                {program.registrationButtonText || "Get Involved"}
+              </Button>
+            }
+          />
+        )}
       </CardFooter>
     </Card>
   );
