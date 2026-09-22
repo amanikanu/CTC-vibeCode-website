@@ -114,7 +114,17 @@ export default function Home() {
       <section className="relative w-full py-24 md:py-32 lg:py-40 bg-card">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <ScrollAnimation>
-          <div className="w-[90%] md:w-4/5 mx-auto max-w-[1440px] text-center relative">
+          <div className="w-[90%] md:w-4/5 mx-auto max-w-[1440px] text-center relative flex flex-col items-center">
+            <Link
+              href="https://calabartechconf.ng/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 mb-10 rounded-full bg-primary text-primary-foreground font-bold text-sm md:text-base lg:text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 hover:shadow-primary/40 transition-all duration-300 ring-4 ring-primary/30 ring-offset-4 ring-offset-background"
+            >
+              <span className="text-xl animate-pulse">🚀</span>
+              Register for Calabar Tech Conference
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold tracking-tighter text-primary">
               Welcome to Calabar Tech Community
             </h1>
@@ -192,7 +202,13 @@ export default function Home() {
                           </p>
                         )}
                         <div className="mt-6">
-                          {program.details.videoUrl ? (
+                          {program.registrationLink && !program.useModal ? (
+                            <Button asChild size="lg">
+                              <a href={program.registrationLink} target="_blank" rel="noopener noreferrer">
+                                {program.registrationButtonText || "Register Now"} <ArrowRight className="ml-2" />
+                              </a>
+                            </Button>
+                          ) : program.details.videoUrl ? (
                             <Button asChild size="lg">
                               <Link href={program.details.videoUrl}>
                                 Learn More <ArrowRight className="ml-2" />
