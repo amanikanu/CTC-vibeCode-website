@@ -27,7 +27,7 @@ const navLinks = [
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2">
-      <Image src="/logo.svg" alt="Calabar Tech Community Logo" width={32} height={32} className="h-8 w-8 text-primary" />
+      <Image src="/logo.png" alt="Calabar Tech Community Logo" width={40} height={40} className="h-10 w-10" />
       <span className="font-headline text-lg font-semibold whitespace-nowrap">Calabar Tech Community</span>
     </Link>
   );

@@ -10,7 +10,7 @@ export function Footer() {
       <div className="w-[90%] md:w-4/5 mx-auto max-w-[1440px] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-sm text-muted-foreground text-center sm:text-left">
          <Link href="/">
-           <Image src="/logo.svg" alt="Calabar Tech Community Logo" width={32} height={32} className="h-8 w-auto" />
+           <Image src="/logo.png" alt="Calabar Tech Community Logo" width={40} height={40} className="h-10 w-10" />
          </Link>
           <span>© {new Date().getFullYear()} Calabar Tech Community. All rights reserved.</span>
         </div>

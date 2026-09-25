@@ -11,16 +11,48 @@ import {
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
-import { tesiShoeMaking, tesiVideoEditing, tesiAiUgc } from "@/assets/images";
+import { tesiAiUgc, tesiShoeMaking, tesiVideoEditing } from "@/assets/images";
+import { TesiMedia } from "@/components/tesi-media";
+import type { StaticImageData } from "next/image";
 
-const tesiInitiatives = [
+type TesiInitiative = {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  badge: string;
+  highlights: string[];
+  image?: StaticImageData;
+  videoUrl?: string;
+  involveHref?: string;
+};
+
+const tesiInitiatives: TesiInitiative[] = [
+  {
+    id: "ai-ugc-video",
+    title: "AI Realistic Content Creation",
+    subtitle: "AI-Powered Video & AI image creation, monetization, and social media strategy",
+    description:
+      "Explore the frontier of content creation by combining artificial intelligence scriptwriting, voice synthesis, digital avatars, and high-converting UGC video.",
+    image: tesiAiUgc,
+    videoUrl: "https://www.youtube.com/embed/86BsOhENglg",
+    involveHref: "/tesi/ai-content-participant",
+    badge: "AI & Innovation",
+    highlights: [
+      "AI script generation & hook optimization",
+      "Synthetic avatars & voice cloning tools",
+      "Automated captioning, dynamic editing, and visual hooks",
+      "Monetizing UGC video assets for global brands"
+    ],
+  },
   {
     id: "shoe-making",
-    title: "Shoe Making",
+    title: "Shoe Making and Branding",
     subtitle: "Craftsmanship Meets Modern Digital Branding",
     description:
       "A hands-on training initiative empowering youth to master footwear production, leather craft design, digital product modeling, and online store management.",
     image: tesiShoeMaking,
+    videoUrl: "https://www.youtube.com/embed/N-EHmAUfDvA",
     badge: "Craftsmanship & Tech",
     highlights: [
       "Footwear design & precision leather crafting",
@@ -44,47 +76,79 @@ const tesiInitiatives = [
       "Portfolio project development & client pitch strategies"
     ],
   },
-  {
-    id: "ai-ugc-video",
-    title: "AI UGC Video Creation",
-    subtitle: "Next-Gen AI-Powered Video & Avatar Generation",
-    description:
-      "Explore the frontier of content creation by combining artificial intelligence scriptwriting, voice synthesis, digital avatars, and high-converting UGC video ads.",
-    image: tesiAiUgc,
-    badge: "AI & Innovation",
-    highlights: [
-      "AI script generation & hook optimization",
-      "Synthetic avatars & voice cloning tools",
-      "Automated captioning, dynamic editing, and visual hooks",
-      "Monetizing UGC video assets for global brands"
-    ],
-  },
+  
 ];
 
 export default function TesiPage() {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-primary/10 via-background to-background border-b border-border/40">
-        <div className="w-[90%] md:w-4/5 mx-auto max-w-[1440px]">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
-            <h1 className="text-4xl md:text-6xl font-headline font-bold tracking-tight text-foreground">
-              Tech Evangelist Skill-Up Initiative <span className="text-primary font-extrabold">(TESI)</span>
-            </h1>
+      <section className="relative overflow-hidden border-b border-border/40">
+        <div className="pointer-events-none absolute inset-0 bg-grid-pattern opacity-[0.07]" />
+        <div className="pointer-events-none absolute -left-24 top-0 h-72 w-72 rounded-full bg-primary/30 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full bg-primary/15 blur-3xl" />
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-              Empowering individuals with practical, high-demand skills combining technology, creative arts, and entrepreneurship to drive sustainable economic growth.
-            </p>
+        <div className="relative mx-auto w-[90%] max-w-[1440px] py-16 md:w-4/5 md:py-24">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+            <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+              <Badge
+                variant="outline"
+                className="mb-6 gap-2 border-primary/40 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground"
+              >
+                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                Tech Evangelist Skill-Up Initiative
+              </Badge>
 
-            <div className="pt-4 flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="rounded-full px-8">
-                <Link href="#initiatives">
-                  Explore Initiatives <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full px-8">
-                <Link href="/contact">Partner With Us</Link>
-              </Button>
+              <h1 className="font-headline text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Learn a Skill.
+                <span className="mt-1 block text-primary">Build Real Projects.</span>
+                <span className="mt-1 block">Create a Portfolio.</span>
+                <span className="mt-1 block">Start Earning.</span>
+              </h1>
+
+              <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg lg:mx-0">
+                TESI equips young people with practical skills in AI, digital media, craftsmanship, entrepreneurship, and monetization through hands-on training and mentorship.
+              </p>
+
+              <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start">
+                <Button asChild size="lg" className="h-12 rounded-full px-8 shadow-lg shadow-primary/25">
+                  <Link href="#initiatives">
+                    Explore Initiatives <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="h-12 rounded-full border-border/80 bg-background/80 px-8 backdrop-blur">
+                  <Link href="/contact">Partner With Us</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
+              <div className="absolute -inset-3 rounded-[2rem] bg-primary/25 blur-2xl" />
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-black/5 bg-white shadow-2xl shadow-black/10">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.16),transparent_42%),radial-gradient(circle_at_bottom_left,rgba(232,184,109,0.45),transparent_48%)]" />
+                <div className="relative px-8 pb-4 pt-10 sm:px-10">
+                  <Image
+                    src="/tesi-mark.png"
+                    alt="TESI"
+                    width={1400}
+                    height={990}
+                    priority
+                    className="mx-auto h-auto w-full max-w-[440px]"
+                  />
+                </div>
+                <div className="relative grid grid-cols-3 border-t border-black/5 bg-white/80">
+                  {tesiInitiatives.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="border-r border-black/5 px-3 py-4 text-center transition-colors last:border-r-0 hover:bg-primary/15"
+                    >
+                      <p className="text-[10px] font-semibold uppercase tracking-wide text-zinc-500">{item.badge}</p>
+                      {/* <p className="mt-1 text-xs font-semibold leading-snug text-zinc-900 sm:text-sm">{item.title}</p> */}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -138,13 +202,13 @@ export default function TesiPage() {
         <div className="w-[90%] md:w-4/5 mx-auto max-w-[1440px] space-y-16">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto space-y-4">
             <Badge variant="outline" className="px-4 py-1 text-xs font-semibold tracking-wide uppercase">
-              Program Tracks
+              Past Program 
             </Badge>
             <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-tight text-foreground">
               TESI Specialized Initiatives
             </h2>
             <p className="text-lg text-muted-foreground">
-              Discover the three core tracks launched under the Tech Evangelist Skill-Up Initiative to foster craftsmanship, digital creation, and AI innovation.
+              Discover the passed program launched under the Tech Evangelist Skill-Up Initiative to foster craftsmanship, digital creation, and AI innovation.
             </p>
           </div>
 
@@ -155,22 +219,18 @@ export default function TesiPage() {
               return (
                 <Card
                   key={item.id}
-                  className="overflow-hidden border-border/70 bg-card shadow-lg hover:shadow-xl transition-all duration-300"
+                  id={item.id}
+                  className="scroll-mt-24 overflow-hidden border-border/70 bg-card shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <div className={`grid lg:grid-cols-12 gap-0 items-center ${isEven ? "" : ""}`}>
                     {/* Image Container */}
-                    <div className={`relative h-72 lg:h-full min-h-[320px] lg:col-span-6 overflow-hidden ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover transition-transform duration-500 hover:scale-105"
+                    <div className={`relative h-72 lg:h-full min-h-[320px] lg:col-span-6 overflow-hidden bg-black ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                      <TesiMedia
+                        title={item.title}
+                        badge={item.badge}
+                        image={item.image}
+                        videoUrl={item.videoUrl}
                       />
-                      <div className="absolute top-4 left-4">
-                        <Badge className="bg-primary/90 text-primary-foreground font-semibold px-3 py-1 backdrop-blur">
-                          {item.badge}
-                        </Badge>
-                      </div>
                     </div>
 
                     {/* Content Container */}
@@ -204,7 +264,7 @@ export default function TesiPage() {
 
                       <div className="pt-4 flex flex-wrap items-center gap-4">
                         <Button asChild variant="default" className="rounded-full px-6">
-                          <Link href="/contact">
+                          <Link href={item.involveHref ?? "/contact"}>
                             Get Involved <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>

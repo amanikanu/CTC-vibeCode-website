@@ -10,37 +10,92 @@ import { ThemeProvider } from '@/components/theme-provider';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL('https://calabartechcommunity.com'),
+
   title: {
-    default: 'Calabar Tech Community',
-    template: `%s | Calabar Tech Community`,
+    default: 'Calabar Tech Community | Calabar’s Largest Tech Community',
+    template: '%s | Calabar Tech Community',
   },
-  description: 'The heart of technology and innovation in Calabar, Nigeria. Join us to learn, build, and grow together.',
+
+  description:
+    'Calabar Tech Community is the biggest tech community in Calabar and South-South Nigeria, connecting developers, designers, founders, students, creators, and tech professionals through training, mentorship, events, innovation, and career opportunities.',
+
+  keywords: [
+    'Calabar Tech Community',
+    'tech community in Calabar',
+    'biggest tech community in Calabar',
+    'tech community in South-South Nigeria',
+    'technology community Nigeria',
+    'Calabar technology ecosystem',
+    'Cross River tech community',
+    'tech events in Calabar',
+    'software developers in Calabar',
+    'tech training in Calabar',
+    'AI training in Calabar',
+    'startup community in Calabar',
+    'developer community Nigeria',
+    'tech careers in Calabar',
+    'Calabar developers',
+    'technology events Cross River',
+  ],
+
+  authors: [
+    {
+      name: 'Calabar Tech Community',
+      url: 'https://calabartechcommunity.com',
+    },
+  ],
+
+  creator: 'Calabar Tech Community',
+  publisher: 'Calabar Tech Community',
+
+  alternates: {
+    canonical: 'https://calabartechcommunity.com',
+  },
+
   openGraph: {
-    title: 'Calabar Tech Community',
-    description: 'The heart of technology and innovation in Calabar, Nigeria. Join us to learn, build, and grow together.',
+    title: 'Calabar Tech Community | Building South-South Nigeria’s Tech Ecosystem',
+    description:
+      'Join the biggest tech community in Calabar and South-South Nigeria. Learn new skills, connect with tech professionals, attend events, access mentorship, build projects, and discover opportunities in technology.',
     url: 'https://calabartechcommunity.com',
     siteName: 'Calabar Tech Community',
     images: [
       {
-        url: 'https://picsum.photos/seed/og-image/1200/630',
-        width: 1200,
-        height: 630,
-        alt: 'Calabar Tech Community',
+        url: '/og-image.jpg',
+        width: 1024,
+        height: 576,
+        alt: 'Tech Conference Calabar 2025',
       },
     ],
-    locale: 'en_US',
+    locale: 'en_NG',
     type: 'website',
   },
+
   twitter: {
     card: 'summary_large_image',
-    title: 'Calabar Tech Community',
-    description: 'The heart of technology and innovation in Calabar, Nigeria. Join us to learn, build, and grow together.',
-    images: ['https://picsum.photos/seed/og-image/1200/630'],
+    title: 'Calabar Tech Community | Calabar’s Largest Tech Community',
+    description:
+      'Learn, build, connect, and grow with the biggest tech community in Calabar and South-South Nigeria. Discover tech training, events, mentorship, projects, and opportunities.',
+    images: ['/og-image.jpg'],
   },
+
   icons: {
-    icon: '/logo.svg',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 
