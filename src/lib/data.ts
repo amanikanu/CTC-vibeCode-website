@@ -89,13 +89,13 @@ const events: Event[] = [
   {
     id: "tech-calabar-conference-2026",
     title: "Tech Conference Calabar 2026",
-    date: "2026-12-05",
-    time: "9:00 AM",
-    location: "Surprise Location, Calabar",
+    date: "2026-11-28",
+    time: "8:00 AM",
+    location: "The Big Tent, 98 Marian Road, Calabar",
     shortDescription:
-      "Join thousands of tech enthusiasts, innovators, and industry leaders for a full day of inspiration and networking.",
+      "Theme: The New Normal. Join tech enthusiasts, innovators, and industry leaders for a full day of inspiration and networking.",
     description:
-      "Join thousands of tech enthusiasts, innovators, and industry leaders for a full day of inspiration and networking. The premier tech conference in Cross River will feature keynotes, panels, workshops, exhibitions, and business pitching.",
+      "The New Normal brings together tech enthusiasts, innovators, and industry leaders for a full day of inspiration and networking. The premier tech conference in Cross River will feature keynotes, panels, workshops, exhibitions, and business pitching.",
     imageUrl:
       "https://res.cloudinary.com/sirsuccess/image/upload/v1758747018/TCC_LOGO_PNGTCC_RED_FULL_tyfvxn.png",
     imageHint: "Tech Conference Calabar 2026 Logo",
@@ -395,14 +395,14 @@ const programs: Program[] = [
   {
     id: "tech-calabar-conference-2026",
     title: "Tech Conference Calabar 2026",
-    description: "Join thousands of tech enthusiasts, innovators, and industry leaders for a full day of inspiration and networking. The premier tech conference in Cross River will feature keynotes, panels, workshops, exhibitions, and business pitching.",
+    description: "Theme: The New Normal. Join tech enthusiasts, innovators, and industry leaders for a full day of inspiration and networking. The premier tech conference in Cross River will feature keynotes, panels, workshops, exhibitions, and business pitching.",
     imageUrl: "https://res.cloudinary.com/sirsuccess/image/upload/v1758747018/TCC_LOGO_PNGTCC_RED_FULL_tyfvxn.png",
     imageHint: "Tech Conference Calabar 2026 Logo",
     status: "upcoming",
     details: {
-      goal: "Innovating for Growth: Building the Future of Technology in Cross River & Beyond.",
-      date: "5th December, 2026 - 9:00 AM",
-      location: "Surprise Location, Calabar",
+      goal: "The New Normal",
+      date: "Saturday, 28th November, 2026 - 8:00 AM",
+      location: "The Big Tent, 98 Marian Road, Calabar",
       hasVideo: false,
     },
     registrationLink: "https://calabartechconf.ng/#join",

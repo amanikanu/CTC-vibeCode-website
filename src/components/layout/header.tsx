@@ -1,34 +1,42 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import React from 'react';
-import { ModeToggle } from '@/components/mode-toggle';
-import Image from 'next/image';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+import React from "react";
+import { ModeToggle } from "@/components/mode-toggle";
+import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/events', label: 'Events' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/team', label: 'Team' },
-  { href: '/contact', label: 'Contact' },
+  { href: "/about", label: "About" },
+  { href: "/events", label: "Events" },
+  { href: "/projects", label: "Projects" },
+  { href: "/team", label: "Team" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2">
-      <Image src="/logo.png" alt="Calabar Tech Community Logo" width={40} height={40} className="h-10 w-10" />
-      <span className="font-headline text-lg font-semibold whitespace-nowrap">Calabar Tech Community</span>
+      <Image
+        src="/logo.png"
+        alt="Calabar Tech Community Logo"
+        width={40}
+        height={40}
+        className="h-10 w-10"
+      />
+      <span className="font-headline text-lg font-semibold whitespace-nowrap">
+        Calabar Tech Community
+      </span>
     </Link>
   );
 }
@@ -42,11 +50,12 @@ export function Header() {
     setIsOpen(false);
   };
 
-  const isInitiativeActive = pathname.startsWith('/tis') || pathname.startsWith('/tesi');
+  const isInitiativeActive =
+    pathname.startsWith("/tis") || pathname.startsWith("/tesi");
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="w-full max-w-[1440px] mx-auto flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
+      <div className="w-full max-w-[90rem] mx-auto flex h-16 items-center justify-between">
         <Logo />
 
         <div className="flex items-center gap-4">
@@ -54,8 +63,10 @@ export function Header() {
             <Link
               href="/about"
               className={cn(
-                'transition-colors hover:text-primary',
-                pathname.startsWith('/about') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                "transition-colors hover:text-primary",
+                pathname.startsWith("/about")
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground",
               )}
             >
               About
@@ -63,13 +74,15 @@ export function Header() {
             <Link
               href="/events"
               className={cn(
-                'transition-colors hover:text-primary',
-                pathname.startsWith('/events') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                "transition-colors hover:text-primary",
+                pathname.startsWith("/events")
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground",
               )}
             >
               Events
             </Link>
-            <Link
+            {/* <Link
               href="/projects"
               className={cn(
                 'transition-colors hover:text-primary',
@@ -77,14 +90,16 @@ export function Header() {
               )}
             >
               Projects
-            </Link>
+            </Link> */}
 
             {/* Initiative Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={cn(
-                  'flex items-center gap-1 transition-colors hover:text-primary outline-none cursor-pointer',
-                  isInitiativeActive ? 'text-primary font-semibold' : 'text-muted-foreground'
+                  "flex items-center gap-1 transition-colors hover:text-primary outline-none cursor-pointer",
+                  isInitiativeActive
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground",
                 )}
               >
                 Initiatives <ChevronDown className="h-4 w-4" />
@@ -93,8 +108,12 @@ export function Header() {
                 <DropdownMenuItem asChild>
                   <Link href="/tis" className="w-full cursor-pointer py-2">
                     <div>
-                      <div className="font-semibold text-foreground">Tech in School</div>
-                      <div className="text-xs text-muted-foreground">Tech awareness for schools</div>
+                      <div className="font-semibold text-foreground">
+                        Tech in School
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Tech awareness for schools
+                      </div>
                     </div>
                   </Link>
                 </DropdownMenuItem>
@@ -102,7 +121,9 @@ export function Header() {
                   <Link href="/tesi" className="w-full cursor-pointer py-2">
                     <div>
                       <div className="font-semibold text-foreground">TESI</div>
-                      <div className="text-xs text-muted-foreground">Tech Evangelist Skill-Up Initiative</div>
+                      <div className="text-xs text-muted-foreground">
+                        Tech Evangelist Skill-Up Initiative
+                      </div>
                     </div>
                   </Link>
                 </DropdownMenuItem>
@@ -112,8 +133,10 @@ export function Header() {
             <Link
               href="/team"
               className={cn(
-                'transition-colors hover:text-primary',
-                pathname.startsWith('/team') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                "transition-colors hover:text-primary",
+                pathname.startsWith("/team")
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground",
               )}
             >
               Team
@@ -121,8 +144,10 @@ export function Header() {
             <Link
               href="/contact"
               className={cn(
-                'transition-colors hover:text-primary',
-                pathname.startsWith('/contact') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                "transition-colors hover:text-primary",
+                pathname.startsWith("/contact")
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground",
               )}
             >
               Contact
@@ -147,8 +172,10 @@ export function Header() {
                       href="/about"
                       onClick={handleLinkClick}
                       className={cn(
-                        'text-lg font-medium transition-colors hover:text-primary',
-                        pathname.startsWith('/about') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                        "text-lg font-medium transition-colors hover:text-primary",
+                        pathname.startsWith("/about")
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground",
                       )}
                     >
                       About
@@ -157,8 +184,10 @@ export function Header() {
                       href="/events"
                       onClick={handleLinkClick}
                       className={cn(
-                        'text-lg font-medium transition-colors hover:text-primary',
-                        pathname.startsWith('/events') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                        "text-lg font-medium transition-colors hover:text-primary",
+                        pathname.startsWith("/events")
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground",
                       )}
                     >
                       Events
@@ -167,8 +196,10 @@ export function Header() {
                       href="/projects"
                       onClick={handleLinkClick}
                       className={cn(
-                        'text-lg font-medium transition-colors hover:text-primary',
-                        pathname.startsWith('/projects') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                        "text-lg font-medium transition-colors hover:text-primary",
+                        pathname.startsWith("/projects")
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground",
                       )}
                     >
                       Projects
@@ -179,11 +210,19 @@ export function Header() {
                       <button
                         onClick={() => setIsInitiativeOpen(!isInitiativeOpen)}
                         className={cn(
-                          'flex items-center justify-between text-lg font-medium text-left w-full transition-colors hover:text-primary',
-                          isInitiativeActive ? 'text-primary font-semibold' : 'text-muted-foreground'
+                          "flex items-center justify-between text-lg font-medium text-left w-full transition-colors hover:text-primary",
+                          isInitiativeActive
+                            ? "text-primary font-semibold"
+                            : "text-muted-foreground",
                         )}
                       >
-                        Initiatives <ChevronDown className={cn('h-5 w-5 transition-transform', isInitiativeOpen && 'rotate-180')} />
+                        Initiatives{" "}
+                        <ChevronDown
+                          className={cn(
+                            "h-5 w-5 transition-transform",
+                            isInitiativeOpen && "rotate-180",
+                          )}
+                        />
                       </button>
                       {isInitiativeOpen && (
                         <div className="pl-4 flex flex-col gap-3 border-l border-border/60 my-1">
@@ -199,7 +238,10 @@ export function Header() {
                             onClick={handleLinkClick}
                             className="text-base font-medium text-foreground hover:text-primary"
                           >
-                            TESI <span className="text-xs text-muted-foreground font-normal block">(Tech Evangelist Skill-Up Initiative)</span>
+                            TESI{" "}
+                            <span className="text-xs text-muted-foreground font-normal block">
+                              (Tech Evangelist Skill-Up Initiative)
+                            </span>
                           </Link>
                         </div>
                       )}
@@ -209,8 +251,10 @@ export function Header() {
                       href="/team"
                       onClick={handleLinkClick}
                       className={cn(
-                        'text-lg font-medium transition-colors hover:text-primary',
-                        pathname.startsWith('/team') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                        "text-lg font-medium transition-colors hover:text-primary",
+                        pathname.startsWith("/team")
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground",
                       )}
                     >
                       Team
@@ -219,8 +263,10 @@ export function Header() {
                       href="/contact"
                       onClick={handleLinkClick}
                       className={cn(
-                        'text-lg font-medium transition-colors hover:text-primary',
-                        pathname.startsWith('/contact') ? 'text-primary font-semibold' : 'text-muted-foreground'
+                        "text-lg font-medium transition-colors hover:text-primary",
+                        pathname.startsWith("/contact")
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground",
                       )}
                     >
                       Contact
@@ -235,4 +281,3 @@ export function Header() {
     </header>
   );
 }
-
