@@ -27,6 +27,16 @@ export default async function EventDetailPage({ params }: { params: { id: string
   const isUpcoming = eventDate
     ? startOfDay(eventDate).getTime() >= startOfDay(new Date()).getTime()
     : false;
+  const displayDate =
+    event.dateLabel ||
+    (eventDate
+      ? eventDate.toLocaleDateString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+      : event.date);
 
   return (
     <div className="bg-background">
@@ -85,16 +95,7 @@ export default async function EventDetailPage({ params }: { params: { id: string
                   <Calendar className="h-5 w-5 mr-3 mt-1 text-primary" />
                   <div>
                     <p className="font-semibold">Date</p>
-                    <p className="text-muted-foreground">
-                      {eventDate
-                        ? eventDate.toLocaleDateString('en-US', {
-                            weekday: 'long',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                          })
-                        : event.date}
-                    </p>
+                    <p className="text-muted-foreground">{displayDate}</p>
                   </div>
                 </div>
                  <div className="flex items-start">

@@ -12,6 +12,7 @@ export interface Event {
   id: string;
   title: string;
   date: string;
+  dateLabel?: string;
   time: string;
   location: string;
   description: string;
@@ -247,9 +248,10 @@ const events: Event[] = [
   {
     id: "tech-conference-calabar",
     title: "The Tech Conference Calabar",
-    date: "2025-11-28",
+    date: "2025-12-05",
+    dateLabel: "December 5th-6th, 2025",
     time: "9:00 AM",
-    location: "Calabar International Convention Centre",
+    location: "City Church, Calabar",
     shortDescription:
       "The biggest tech conference in Calabar, bringing together the brightest minds in technology.",
     description:
@@ -460,8 +462,8 @@ const programs: Program[] = [
       goal: "Bringing together the brightest minds in technology.",
       hasVideo: true,
       videoUrl: "https://www.youtube.com/embed/onBDDzC21ww",
-      date: "28th - 29th November 2025",
-      location: "Calabar International Convention Centre",
+      date: "5th - 6th December 2025",
+      location: "City Church, Calabar",
     },
     recap: {
       text: "Watch video",
@@ -670,7 +672,7 @@ function parseProgramDateRange(
   // Examples in our data:
   // - "8th March, 2026"
   // - "24th - 25th March, 2026"
-  // - "28th - 29th November 2025"
+  // - "5th - 6th December 2025"
   const normalized = value
     .replace(/[–—]/g, "-") // en/em dashes -> hyphen
     .replace(/,/g, "")
