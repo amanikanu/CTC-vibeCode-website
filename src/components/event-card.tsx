@@ -15,6 +15,15 @@ export default function EventCard({ event }: EventCardProps) {
   const eventDate = parseDate(event.date);
   const today = startOfDay(new Date());
   const isUpcoming = eventDate ? startOfDay(eventDate).getTime() >= today.getTime() : false;
+  const displayDate =
+    event.dateLabel ||
+    (eventDate
+      ? eventDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+      : event.date);
 
   return (
     <Card className="flex flex-col overflow-hidden group border-border/50 hover:border-primary/70 hover:shadow-lg transition-all duration-300">
@@ -36,15 +45,7 @@ export default function EventCard({ event }: EventCardProps) {
       <CardContent className="flex-grow space-y-3">
         <div className="flex items-center text-sm text-muted-foreground">
           <Calendar className="mr-2 h-4 w-4 shrink-0" />
-          <span>
-            {eventDate
-              ? eventDate.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })
-              : event.date}
-          </span>
+          <span>{displayDate}</span>
         </div>
         <div className="flex items-center text-sm text-muted-foreground">
           <MapPin className="mr-2 h-4 w-4 shrink-0" />

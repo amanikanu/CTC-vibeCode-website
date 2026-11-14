@@ -122,9 +122,16 @@ export default function Home() {
               className="group inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 mb-10 rounded-full bg-primary text-primary-foreground font-bold text-sm md:text-base lg:text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 hover:shadow-primary/40 transition-all duration-300 ring-4 ring-primary/30 ring-offset-4 ring-offset-background"
             >
               <span className="text-xl animate-pulse">🚀</span>
-              Register for Calabar Tech Conference
+              Register for Tech Conference Calabar 2026
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
+            {/* <div className="mb-10 space-y-2 text-muted-foreground">
+              <p className="text-lg font-semibold text-primary">
+                Theme: The New Normal
+              </p>
+              <p>Saturday, 28th November, 2026 · 8:00 AM</p>
+              <p>The Big Tent, 98 Marian Road, Calabar</p>
+            </div> */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold tracking-tighter text-primary">
               Welcome to Calabar Tech Community
             </h1>
